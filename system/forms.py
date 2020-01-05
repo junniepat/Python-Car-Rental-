@@ -14,6 +14,8 @@ class CarForm(forms.ModelForm):
             "cost_par_day",
             "cost_per_week",
             "weekend_cost",
+            "avaliable",
+            # "car_type",
             "content",
         ]
         

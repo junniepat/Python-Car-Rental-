@@ -5,40 +5,60 @@
        
     {% endblock %}
 {% block nav %}
-        <li><a href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-        <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-share"></span> Login</a></li>
+        <li  class="nav-item"><a class="nav-link" href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span> Home</a class="nav-link"></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Register</a class="nav-link"></li class="nav-link">
+        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><span class="glyphicon glyphicon-share"></span> Login</a class="nav-link"></li class="nav-link">
 {% endblock %}
 {% block body %}
 <div class="container" style="margin-top: 15px;">
-<div class="row">
-        {% for ob in car %}
+<div class="card">
+  <div class="card-body">
+    <div class="row">
 
-      <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-            {% if ob.image %}
-                <img src='{{ ob.image.url }}' class="img-responsive"/>
-            {% endif %}
-          <div class="caption">
-            <strong>{{ ob.car_name }}</strong>
-            <p> Company Name: {{ ob.company_name }}<br>
-                Num Of Seats: {{ ob.num_of_seats }}<br>
-                Cost Per Day: {{ ob.cost_par_day }} Euro<br>
-                Cost Per Week: {{ ob.cost_par_week }} Euro<br>
-                Weekend Cost: {{ ob.weekend_cost}} Euro<br>
-            </p>
-              {% if user.is_staff %}
-              <div class="pull-right">
-            <p><a href="{% url 'car_detail' ob.id %}" class="btn btn-primary" role="button">Detail</a>
-            <a href="{% url 'order_create' %}" class="btn btn-danger" role="button">Book</a></p>
-              </div>
+      {% for ob in car %}
+        
+      
+      {% if ob.avaliable == True %}
+      <div class="col-sm-6 col-md-4">
+        <div class="card card-shadow">
+          <div class="card-body">
+            <div class="thumbnail">
+              {% if ob.image %}
+                  <img src='{{ ob.image.url }}' class="img-responsive"/>
               {% endif %}
+            <div class="caption">
+              <strong>{{ ob.car_name }}</strong>
+              <p> 
+                  <b>Company Name:</b> {{ ob.company_name }}<br>
+                  <b>Plate Number:</b> {{ ob.plate_number }}<br>
+                  <b>Num Of Seats:</b> {{ ob.num_of_seats }}<br>
+                  <b>Cost Per Day:</b> {{ ob.cost_par_day }} Euro<br>
+                  <b>Cost Per Week:</b> {{ ob.cost_par_week }} Euro<br>
+                  <b>Weekend Cost:</b> {{ ob.weekend_cost}} Euro<br>
+                  <!-- <b>available:</b> {{ ob.avaliable}}<br> -->
+              </p>
+
+              <p><a href="{% url 'car_detail' ob.id %}" class="btn btn-primary" role="button">Detail</a>
+              <a href="{% url 'order_create' %}" class="btn btn-danger" role="button">Book</a></p>
+                <!-- {% if user.is_staff %} -->
+                <div class="pull-right">
+              <p><a href="{% url 'car_detail' ob.id %}" class="btn btn-primary" role="button">Detail</a>
+                <a href="{% url 'order_create' %}" class="btn btn-danger" role="button">Book</a></p>
+                </div>
+                <!-- {% endif %} -->
+            </div>
+          </div>
           </div>
         </div>
-      </div>
+    </div>
+        {% endif %}
 
 
-        {% endfor %}
+
+
+      {% endfor %}
+</div>
+  </div>
 </div>
 
     <nav>

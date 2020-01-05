@@ -7,14 +7,15 @@
 
 {% endblock %}
 {% block nav %}
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-        <li><a href="{% url 'car_list' %}"><span class="glyphicon glyphicon-list"></span> Car List</a></li>
-        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-share"></span> Login</a></li>
-        <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-      </ul>
-    </div>
+<div class="collapse navbar-collapse" id="myNavbar">
+  <ul class="navbar-nav navbar-right">
+    <li class="nav-item"><a class="nav-link" href="{% url 'adminIndex' %}"><span class="glyphicon glyphicon-home"></span> Car List</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'order_list' %}"><span class="glyphicon glyphicon-tags"></span> Order List</a></li class="nav-item">
+    <li class="nav-item"><a class="nav-link" href="{% url 'message' %}"><span class="glyphicon glyphicon-envelope"></span> Message</a></li class="nav-item">
+      <li class="nav-item"><a class="nav-link" href="{% url 'car_create' %}"><span class="glyphicon glyphicon-plus"></span> Add Car</a></li class="nav-item">
+    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><span class="glyphicon glyphicon-share"></span> Logout</a></li class="nav-item">
+  </ul>
+</div>
 {% endblock %}
 {% block body %}
 <div class ='col-sm-5 col-sm-offset-3'>
