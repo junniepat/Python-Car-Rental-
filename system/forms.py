@@ -1,5 +1,5 @@
 from django import forms
-from .models import Car, Order, PrivateMsg
+from .models import Car, Order, PrivateMsg,CarType
 
 class CarForm(forms.ModelForm):
     class Meta:
@@ -8,10 +8,15 @@ class CarForm(forms.ModelForm):
             "image",
             "car_name",
             "company_name",
+            "plate_number",
             "num_of_seats",
+            "num_of_bed",
             "cost_par_day",
+            "cost_per_week",
+            "weekend_cost",
             "content",
         ]
+        
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order

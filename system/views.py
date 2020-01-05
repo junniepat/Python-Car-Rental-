@@ -3,7 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse , HttpResponseRedirect
 from django.db.models import Q
 
-from .models import Car, Order, PrivateMsg
+from .models import Car, Order, PrivateMsg,CarType
 from .forms import CarForm, OrderForm, MessageForm
 
 
